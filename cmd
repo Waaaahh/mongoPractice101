@@ -157,3 +157,10 @@ db.bulk.findAndModify({
     query: { doc: 4},
     update: { $inc: { doc: 1}}
 })
+
+
+db.bulk.findAndModify({
+    query: { doc: 5},
+    sort: {order : -1},
+    update: { $inc: { doc: 1}}
+})
