@@ -164,3 +164,12 @@ db.bulk.findAndModify({
     sort: {order : -1},
     update: { $inc: { doc: 1}}
 })
+
+db.sequence.insertOne({ seq: 0})
+
+// 동시선에 문제없이 조작이 가능함
+db.sequence.findAndModify({
+    query:{},
+    sort: {seq: -1},
+    update: { $inc: {seq: 1}}
+})
