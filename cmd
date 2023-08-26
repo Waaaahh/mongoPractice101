@@ -145,3 +145,5 @@ db.bulk.bulkWrite(
         {ordered: false}
     ]
 )
+
+db.bulk.countDocuments()
