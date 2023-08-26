@@ -147,3 +147,8 @@ db.bulk.bulkWrite(
 )
 
 db.bulk.countDocuments()
+
+db.bulk.estimatedDocumentCount()
+
+// 유니크한 도큐먼트 반환
+db.bulk.distinct("doc")
