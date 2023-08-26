@@ -173,3 +173,14 @@ db.sequence.findAndModify({
     sort: {seq: -1},
     update: { $inc: {seq: 1}}
 })
+
+db.bulk.getIndexes()
+
+db.bulk.createIndex({ doc: 1})
+
+// error 발생  _id는 수정이 불가
+db.bulk.updateOne({doc: 1}, { $set: { _id: 1}})
+db.bulk.replaceOne({ doc: 1}, {_id: 1, doc: 13})
+
+db.bulk.replaceOne({ doc: 1}, {doc: 13})
+
