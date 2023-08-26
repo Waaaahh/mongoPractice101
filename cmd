@@ -152,3 +152,8 @@ db.bulk.estimatedDocumentCount()
 
 // 유니크한 도큐먼트 반환
 db.bulk.distinct("doc")
+
+db.bulk.findAndModify({
+    query: { doc: 4},
+    update: { $inc: { doc: 1}}
+})
