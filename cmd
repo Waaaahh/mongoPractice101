@@ -184,3 +184,31 @@ db.bulk.replaceOne({ doc: 1}, {_id: 1, doc: 13})
 
 db.bulk.replaceOne({ doc: 1}, {doc: 13})
 
+// 배열과 내장 도큐먼트
+db.sales.findOne({
+    customer: {
+        gender: 'M',
+        age: 50,
+        email: 'keecade@hem.uy',
+        satisfaction: 5
+    }
+})
+
+// 내장 도큐먼트 순서가 달라서 나오지 않음
+db.sales.findOne({
+    customer: {
+        satisfaction: 5,
+        gender: 'M',
+        age: 50,
+        email: 'keecade@hem.uy',
+    }
+})
+
+// 내부 도큐먼트 조건 걸기
+db.sales.findOne({
+    "customer.email": "keecade@hem.uy"
+})
+
+db.sales.findOne({
+    "customer.age": {$lt: 20}
+})
